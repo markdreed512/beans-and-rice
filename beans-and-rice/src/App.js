@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
-import ChooseMealPage from './pages/ChooseMealPage'
+import ChooseMealPage from './pages/ChooseMealPage';
+import Header from './components/Header';
 
 function App() {
   return (
-    <div className="container">
+    <div>
+      <Header />
       <ChooseMealPage />
     </div>
   );
