@@ -2,17 +2,32 @@ import React, { useState } from 'react'
 import ItemDropdown from '../components/ItemDropdown'
 import AddItemForm from '../components/AddItemForm'
 
-
 export default function ChooseMealPage() {
+    
 
     const [formVisible, setFormVisible] = useState(false);
+
+    const handleChange = (target) => {
+        const dropdown = document.getElementById('dropdown')
+        const selectedItem = dropdown.value
+        console.log("selected item: ", selectedItem )
+        //if selectedItem ==== Add Item, render addItemForm
+        //else, add selection to log - call logItem
+        if(selectedItem === "ADD FOOD ITEM"){
+            //render addItem form
+            setFormVisible(true)
+        }
+        else console.log("else...")
+        // logItem(selectedItem)
+        
+    }
 
     let content;
     if (formVisible) {
                 content = <AddItemForm />;
                
              } else {
-                content = <ItemDropdown />;
+                content = <ItemDropdown handleChange = {(e) => handleChange(e.target)}/>;
              }
 
     return (
@@ -21,25 +36,7 @@ export default function ChooseMealPage() {
                 </div>
             )
 
-    // state = {
-    //     formVisible: true
-    // }
-
-    // render() {
-    //     let content;
-    //     if (this.state.formVisible) {
-    //         content = <AddItemForm />;
-           
-    //      } else {
-    //         content = <ItemDropdown />;
-    //      }
-
-    //     return (
-    //         <div>
-    //             { content }
-    //         </div>
-    //     )
-    // }
+    
 }
 
 

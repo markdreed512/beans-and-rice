@@ -9,7 +9,7 @@ function ItemDropdown(props){
     const [foods, setFoods] = useState(ingredients);
     const logItem = item => {
         count++
-        console.log("this passed in: " + item + count)
+        console.log("item to log: " + item + count)
       };
     const populateChoices = (arr) => {
         return (
@@ -18,20 +18,13 @@ function ItemDropdown(props){
         })
         )
     }
-    const handleChange = (target) => {
-        const dropdown = document.getElementById('dropdown')
-        const selectedItem = dropdown.value
-        console.log("selected item: ", selectedItem )
-        
-        
-    }
     let test = populateChoices(foods)
     console.log("populuateTest: ",test)
 
         return (
 
             <div>
-                <select id="dropdown" onChange= {(e) => handleChange(e.target)}>
+                <select id="dropdown" onChange= {props.handleChange}>
                     { populateChoices(foods) }
                 </select>
             </div>
