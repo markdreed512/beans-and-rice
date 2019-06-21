@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import ItemDropdown from '../components/ItemDropdown'
-import AddItemForm from '../components/AddItemForm'
+import ItemDropdown from '../components/ItemDropDown/index.js'
+import AddItemForm from '../components/AddItemForm/index.js'
 
 export default function ChooseMealPage() {
     
