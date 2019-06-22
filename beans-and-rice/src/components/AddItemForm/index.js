@@ -1,15 +1,27 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 
-class AddItemForm extends Component {
+function AddItemForm () {
+    
 
-    submit = () => {
-        alert('submitted')
+    const [foodLog, setFoodLog] = useState(["rice", "beans"])
+    let foods = [...foodLog]
+    let inputVal = "";
+    const handleChange =(val) => {
+        //capture user input
+        inputVal = val;
     }
-    render() {
+    const submit = () => {
+        //add user input to meal log
+        foods.push(inputVal)
+        setFoodLog(foods)
+        //this console log was asynchronous. why?
+        console.log("foodLog: ", foodLog)
+    }
+  
         return (
             <div>
                 <div className="form-group app-form">
-                    <input className="form-control" type="text" placeholder="Input" value="Input" />
+                    <input onChange={(e)=> handleChange(e.target.value)} className="form-control" type="text" placeholder="Enter food item" />
                     <div className="form-check">
                         <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" />
                         <label className="form-check-label" for="exampleRadios1">
@@ -28,14 +40,15 @@ class AddItemForm extends Component {
                             $$$
                                     </label>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" class="btn btn-primary" onClick={()=>submit()}>Submit</button>
 
                 </div>
+                <div id="temp-food-log">Food Log: { foodLog }</div>
 
             </div>
 
         )
-    }
+    
 }
 
 export default AddItemForm

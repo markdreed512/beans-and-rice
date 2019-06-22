@@ -1,7 +1,7 @@
 import React from 'react'
 import "./style.css";
 
-export default function index() {
+export default function Header() {
     return (
         <div id="header">
             <h1>Beans and Rice</h1>

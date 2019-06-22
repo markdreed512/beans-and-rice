@@ -1,13 +1,15 @@
 import React from 'react';
 import './App.css';
-import ChooseMealPage from './pages/ChooseMealPage';
-import Header from './components/Header';
+import ChooseMealPage from './pages/ChooseMealPage/index.js';
+import Header from './components/Header/index.js';
 
 function App() {
   return (
-    <div>
+    <div className="main">
       <Header />
-      <ChooseMealPage />
+      <div className="content">
+        <ChooseMealPage />
+      </div>
     </div>
   );
 }

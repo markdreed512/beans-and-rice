@@ -1,0 +1,14 @@
+body{
+    background-color: rgb(118, 168, 168);
+    background-size: 100%;
+}
+.main{
+display: grid;
+grid-template-columns: 1fr 3fr 3fr 1fr;
+grid-template-rows: 2fr 1fr 15fr 15fr ;
+height: 100vh;
+}
+.content{
+    grid-column: 2/4;
+    grid-row: 2/5;
+}
