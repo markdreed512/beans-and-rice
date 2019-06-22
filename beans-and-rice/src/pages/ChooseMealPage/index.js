@@ -25,13 +25,19 @@ export default function ChooseMealPage() {
         // logItem(selectedItem)
         
     }
+    const formSubmit = (val) => {
+        console.log("form submitted. Value is...", val)
+    }
+    const handleAddChange = (val) => {
+        console.log("handling Add...Val:  ", val)
+    }
 
     let content;
     if (formVisible) {
-                content = <AddItemForm />;
+                content = <AddItemForm onClick={(e)=> formSubmit(e.target.value)} onChange={(e)=> handleAddChange(e.target.value)}/>;
                
-             } else {
-                content = <ItemDropdown handleChange = {(e) => handleChange(e.target)}/>;
+             } else { 
+                content = <ItemDropdown handleChange = {(e) => handleChange(e.target.value)}/>;
              }
 
     return (

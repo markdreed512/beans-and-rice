@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-function AddItemForm () {
+function AddItemForm (props) {
     //data should display on mount
     //attempt to use useEffect in place of component did mount
     //keeps adding 0's (probably becuase it keeps calling itself on each update within submit)
@@ -42,14 +42,12 @@ function AddItemForm () {
         return (
             <div>
                 <div className="form-group app-form">
-                    <input onChange={(e)=> handleFoodInput(e.target.value)} className="form-control" type="text" placeholder="Enter food item" />
-                    <input onChange={(e)=> handleCostInput(e.target.value)} className="form-control" type="text" placeholder="Enter cost" />
-                    <button type="submit" class="btn btn-primary" onClick={()=>submit()}>Submit</button>
+                    <input onChange={props.onChange} className="form-control" type="text" placeholder="Enter food item" />
+                    <input onChange={props.onChange} className="form-control" type="text" placeholder="Enter cost" />
+                    <button type="submit" className="btn btn-primary" onClick={props.onClick}>Submit</button>
 
                 </div>
-                <div id="temp-food-log">Food Log: { foodLog }</div>
-                <div id="temp-cost-log">Cost Log: { costLog }</div>
-                <div id="temp-cost-total">Total Cost: { totalCost }</div>
+                
 
 
             </div>
