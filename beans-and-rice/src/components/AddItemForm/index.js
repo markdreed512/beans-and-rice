@@ -42,8 +42,8 @@ function AddItemForm (props) {
         return (
             <div>
                 <div className="form-group app-form">
-                    <input onChange={props.onChange} className="form-control" type="text" placeholder="Enter food item" />
-                    <input onChange={props.onChange} className="form-control" type="text" placeholder="Enter cost" />
+                    <input id="foodInput" onChange={props.onFoodChange} className="form-control" type="text" placeholder="Enter food item" />
+                    <input id="costInput" onChange={props.onCostChange} className="form-control" type="text" placeholder="Enter cost" />
                     <button type="submit" className="btn btn-primary" onClick={props.onClick}>Submit</button>
 
                 </div>

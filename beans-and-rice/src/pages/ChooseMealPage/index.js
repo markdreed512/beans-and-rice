@@ -10,7 +10,10 @@ export default function ChooseMealPage() {
     const [foods, setFoods] = useState([]);
     const [costs, setCosts] = useState([]);
     const [total, setTotal] = useState(0);
-
+    let foodInput = [...foods];
+    let costInput = [...costs];
+    let foodCurrent = '';
+    let costCurrent = 0;
     const handleChange = (target) => {
         const dropdown = document.getElementById('dropdown')
         const selectedItem = dropdown.value
@@ -25,16 +28,25 @@ export default function ChooseMealPage() {
         // logItem(selectedItem)
         
     }
-    const formSubmit = (val) => {
-        console.log("form submitted. Value is...", val)
+    const formSubmit = () => {
+       foodInput.push(foodCurrent);
+       costInput.push(costCurrent);
+       setFoods(foodInput);
+       setCosts(costInput);
+       document.getElementById('foodInput').value = "";
+       document.getElementById('costInput').value = "";
+        
     }
-    const handleAddChange = (val) => {
-        console.log("handling Add...Val:  ", val)
+    const handleFoodChange = (val) => {
+        foodCurrent = val;
+    }
+    const handleCostChange = (val) => {
+        costCurrent = val;
     }
 
     let content;
     if (formVisible) {
-                content = <AddItemForm onClick={(e)=> formSubmit(e.target.value)} onChange={(e)=> handleAddChange(e.target.value)}/>;
+                content = <AddItemForm onClick={()=> formSubmit()} onCostChange = {(e)=> handleCostChange(e.target.value)}onFoodChange={(e)=> handleFoodChange(e.target.value)}/>;
                
              } else { 
                 content = <ItemDropdown handleChange = {(e) => handleChange(e.target.value)}/>;
