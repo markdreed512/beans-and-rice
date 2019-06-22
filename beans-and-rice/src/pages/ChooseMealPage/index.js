@@ -1,11 +1,15 @@
 import React, { useState } from 'react'
 import ItemDropdown from '../../components/ItemDropDown/index'
 import AddItemForm from '../../components/AddItemForm/index'
+import Log from '../../components/Log'
 
 export default function ChooseMealPage() {
     
 
     const [formVisible, setFormVisible] = useState(false);
+    const [foods, setFoods] = useState([]);
+    const [costs, setCosts] = useState([]);
+    const [total, setTotal] = useState(0);
 
     const handleChange = (target) => {
         const dropdown = document.getElementById('dropdown')
@@ -33,6 +37,7 @@ export default function ChooseMealPage() {
     return (
                 <div>
                     { content }
+                    <Log foodLog={ foods } costLog={ costs } totalCost= { total }/>
                 </div>
             )
 
